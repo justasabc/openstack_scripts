@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "====================================================================="
 apt-get -y --purge autoremove bridge-utils
+apt-get -y --purge autoremove kvm libvirt-bin
 apt-get -y --purge autoremove ntp
 apt-get -y --purge autoremove tgt
 apt-get -y --purge autoremove open-iscsi open-iscsi-utils

@@ -8,6 +8,9 @@
 echo 1 > /proc/sys/net/ipv4/ip_forward
 apt-get -y install bridge-utils
 
+# kvm
+apt-get -y install kvm libvirt-bin
+
 # install ntp and configure
 apt-get -y install ntp
 file=/etc/ntp.conf
