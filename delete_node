@@ -1,0 +1,8 @@
+#!/bin/bash
+#====================================================
+# Step 1: Prepare your System
+#====================================================
+#apt-get -y update
+#apt-get -y upgrade
+
+echo 1 > /proc/sys/net/ipv4/ip_forward

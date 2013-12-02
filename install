@@ -1,0 +1,166 @@
+#!/bin/bash
+#====================================================
+# Step 1: Prepare your System
+#====================================================
+#apt-get -y update
+#apt-get -y upgrade
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+apt-get -y install bridge-utils
+
+# install ntp and configure
+apt-get -y install ntp
+file=/etc/ntp.conf
+sed -i 's/^server ntp.ubuntu.com$/server ntp.ubuntu.com iburst\nserver 127.127.1.0\nfudge 127.127.1.0 stratum 10/g' $file
+service ntp restart
+
+# install tgt target (we'll need it for nova-volume) 
+apt-get -y install tgt
+service tgt restart
+
+apt-get -y install open-iscsi open-iscsi-utils
+apt-get -y install rabbitmq-server memcached python-memcache
+
+#====================================================
+#Step 2: Install and Configure MySQL 
+#====================================================
+# install mysql automaitcally
+apt-get -y install mysql-server python-mysqldb
+# (root,rootpass) for mysql
+
+# Allow other machines to be able to talk to that MySQL database
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/my.cnf  
+service mysql restart
+
+echo "***************************************************"
+# show users
+mysql -u root -p$MYSQL_PASSWORD <<EOF
+use mysql;
+select Host,User,Password from user;
+EOF
+echo "***************************************************"
+#====================================================
+# Step 3: Install and configure Keystone
+#====================================================
+# keystone
+mysql -u root -p$MYSQL_PASSWORD <<EOF
+DROP DATABASE IF EXISTS keystone;
+CREATE DATABASE keystone;
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystonedbadmin'@'%' IDENTIFIED BY 'keystonedbpass' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystonedbadmin'@'localhost' IDENTIFIED BY 'keystonedbpass' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EOF
+
+# install keystone
+apt-get -y install keystone python-keystone python-keystoneclient
+
+# configure keystone
+file=/etc/keystone/keystone.conf
+sed -i -e " s/admin_token = ADMIN/admin_token = ${ADMIN_TOKEN}/g" $file
+sed -i '/connection = .*/{s|sqlite:///.*|mysql://keystonedbadmin:keystonedbpass@'"${HOST_IP}"'/keystone|g}' $file
+echo "***************************************************"
+grep '^admin_token' $file
+grep 'mysql' $file
+echo "***************************************************"
+# restart keystone
+service keystone restart
+#Then make Keystone create its tables within the freshly created keystone database:
+keystone-manage db_sync
+echo "***************************************************"
+# show all tables in keystone
+mysql -u root -p$MYSQL_PASSWORD <<EOF
+use keystone;
+show tables;
+EOF
+echo "***************************************************"
+
+# import data
+file=./controller/keystone/keystone_data.sh
+bash $file
+echo "***************************************************"
+keystone user-list
+keystone tenant-list
+keystone role-list
+echo "***************************************************"
+
+file=./controller/keystone/endpoints.sh
+bash $file
+echo "***************************************************"
+keystone service-list
+keystone endpoint-list
+echo "***************************************************"
+
+#====================================================
+#Step 4: Install and configure Glance
+#====================================================
+# glance
+mysql -u root -p$MYSQL_PASSWORD <<EOF
+DROP DATABASE IF EXISTS glance;
+CREATE DATABASE glance;
+GRANT ALL PRIVILEGES ON glance.* TO 'glancedbadmin'@'%' IDENTIFIED BY 'glancedbpass' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON glance.* TO 'glancedbadmin'@'localhost' IDENTIFIED BY 'glancedbpass' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EOF
+
+# install glance
+apt-get -y install glance glance-api glance-client glance-common glance-registry python-glance
+
+# configure file
+echo "***************************************************"
+file=/etc/glance/glance-api-paste.ini
+sed -i -e " s/%SERVICE_TENANT_NAME%/service/g; s/%SERVICE_USER%/glance/g; s/%SERVICE_PASSWORD%/${SERVICE_PASSWORD}/g; " $file
+tail -3 $file
+echo "***************************************************"
+
+file=/etc/glance/glance-registry-paste.ini
+sed -i -e " s/%SERVICE_TENANT_NAME%/service/g; s/%SERVICE_USER%/glance/g; s/%SERVICE_PASSWORD%/${SERVICE_PASSWORD}/g; " $file
+tail -3 $file
+echo "***************************************************"
+
+file=/etc/glance/glance-registry.conf
+sed -i '/sql_connection = .*/{s|sqlite:///.*|mysql://glancedbadmin:glancedbpass@'"${HOST_IP}"'/glance|g}' $file
+grep 'mysql' $file
+echo "***************************************************"
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#file=/etc/glance/glance-registry.conf
+#cat <<EOF >> $file
+#[paste_deploy]
+#flavor = keystone
+#EOF
+#file=/etc/glance/glance-api.conf
+#cat <<EOF >> $file
+#[paste_deploy]
+#flavor = keystone
+#EOF
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo "***************************************************"
+# restart glance
+service glance-api restart && service glance-registry restart
+
+# initially synchronize the Glance database by running these commands:
+glance-manage version_control 0
+glance-manage db_sync         
+
+# restart glance
+service glance-api restart && service glance-registry restart
+
+# sleep for 1 seconds for glance to startup
+sleep 1
+#glance clear
+# upload image to glance
+#/////////////////////////////////////////////////////////////////////////////
+# kzl
+#glance add name="cirros-0.30-x86_64" is_public=true disk_format=qcow2 container_format=bare  < ./image/cirros-0.3.0-x86_64-disk.img
+#glance add name="Ubuntu 12.04 server cloudimg amd64" is_public=true disk_format=qcow2 container_format=ovf  < ./image/ubuntu-12.04-server-cloudimg-amd64-disk1.img
+#/////////////////////////////////////////////////////////////////////////////
+echo "***************************************************"
+glance index
+glance --version
+echo "***************************************************"
+
+#====================================================
+# Step 5: Install and configure Nova
+#====================================================
+./nova_install
+

@@ -1,0 +1,55 @@
+## 1)Whether linux kernel >=2.6.15
+uname -r
+#3.2.0-29-generic
+# 3.2>2.6
+
+## 2)Whether support virtualization
+egrep -c "(svm|vmx)" /proc/cpuinfo
+#16
+#If 0 it means that your CPU doesn't support hardware virtualization.
+#If 1 or more it does - but you still need to make sure that virtualization is enabled in the BIOS.
+
+# OR
+lscpu | grep Virtualization
+#Virtualization:        VT-x
+
+#OR
+apt-get install cpu-checker
+kvm-ok
+#INFO: /dev/kvm does not exist
+#HINT:   sudo modprobe kvm_intel
+#INFO: Your CPU supports KVM extensions
+#KVM acceleration can be used
+
+## 3)Whether enabled virtualization in bios
+kvm-ok
+#INFO: /dev/kvm does not exist
+#HINT:   sudo modprobe kvm_intel
+#INFO: Your CPU supports KVM extensions
+#KVM acceleration can be used
+
+
+apt-get install kvm qemu
+
+# temporarily load intel module(depends on kvm module)
+modprobe kvm
+modprobe kvm_intel
+
+# permanently load intel module
+vim /etc/modules
+#****************************************
+#****************************************
+# added by ke on 2013/11/25
+kvm
+kvm_intel
+#****************************************
+#****************************************
+
+lsmod | grep kvm_intel
+#kvm_intel             137721  0 
+#kvm                   415549  1 kvm_intel
+
+# view results
+kvm-ok
+#INFO: /dev/kvm exists
+#KVM acceleration can be used

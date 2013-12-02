@@ -1,0 +1,14 @@
+#!/bin/bash
+echo "====================================================================="
+apt-get -y --purge autoremove bridge-utils
+apt-get -y --purge autoremove ntp
+apt-get -y --purge autoremove tgt
+apt-get -y --purge autoremove open-iscsi open-iscsi-utils
+apt-get -y --purge autoremove rabbitmq-server memcached python-memcache
+apt-get -y --purge autoremove mysql-server python-mysqldb
+apt-get -y --purge autoremove keystone python-keystone python-keystoneclient
+apt-get -y --purge autoremove glance glance-api glance-client glance-common glance-registry python-glance
+
+# remove nova
+./nova_uninstall
+echo "====================================================================="

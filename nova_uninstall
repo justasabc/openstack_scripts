@@ -1,0 +1,8 @@
+#!/bin/bash
+./same/iptable/clean_iptables
+apt-get -y --purge autoremove nova-api nova-cert nova-common nova-compute nova-compute-kvm nova-doc nova-network nova-objectstore nova-scheduler nova-volume nova-consoleauth novnc python-nova python-novaclient
+apt-get -y --purge autoremove libapache2-mod-wsgi openstack-dashboard
+
+# ========================================================== 
+#apt-get -y --purge autoremove python-nova python-novaclient
+# ========================================================== 

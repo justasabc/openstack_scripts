@@ -1,0 +1,8 @@
+#!/bin/bash
+env | grep IP
+env | grep OS_
+env | grep ADMIN_
+env | grep SERVICE_
+env | grep MYSQL_PASSWORD
+env | grep RANGE
+env | grep NETWORK

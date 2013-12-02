@@ -1,0 +1,210 @@
+#====================================================
+# Step 5: Install and configure Nova
+#====================================================
+echo "111111111111111111111111111111111111111111111111111"
+file=./same/iptable/show_iptables
+bash $file
+route -n
+ip a
+echo "111111111111111111111111111111111111111111111111111"
+
+# nova 
+mysql -u root -p$MYSQL_PASSWORD <<EOF
+DROP DATABASE IF EXISTS nova;
+CREATE DATABASE nova;
+GRANT ALL PRIVILEGES ON nova.* TO 'novadbadmin'@'%' IDENTIFIED BY 'novadbpass' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON nova.* TO 'novadbadmin'@'localhost' IDENTIFIED BY 'novadbpass' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EOF
+
+# install nova
+apt-get -y install nova-api nova-cert nova-common nova-compute nova-compute-kvm nova-doc nova-network nova-objectstore nova-scheduler nova-volume nova-consoleauth novnc python-nova python-novaclient
+
+echo "222222222222222222222222222222222222222222222222222"
+file=./same/iptable/show_iptables
+bash $file
+route -n
+ip a
+echo "222222222222222222222222222222222222222222222222222"
+
+# change user group of nova
+chown -R nova:nova /etc/nova
+file=/etc/nova/api-paste.ini
+sed -i -e " s/%SERVICE_TENANT_NAME%/service/g; s/%SERVICE_USER%/nova/g; s/%SERVICE_PASSWORD%/${SERVICE_PASSWORD}/g; " $file
+echo "***************************************************"
+tail -3 $file
+echo "***************************************************"
+
+file=/etc/nova/nova.conf
+temp=./same/nova.conf
+cat $temp >$file
+# replace env to value
+sed -i '/${HOST_IP}/{s|${HOST_IP}|'"${HOST_IP}"'|g}' $file
+sed -i '/${CONTROLLER_IP}/{s|${CONTROLLER_IP}|'"${CONTROLLER_IP}"'|g}' $file
+sed -i '/${ISCSI_IP_PREFIX}/{s|${ISCSI_IP_PREFIX}|'"${ISCSI_IP_PREFIX}"'|g}' $file
+sed -i '/${ISCSI_IP_PREFIX}/{s|${ISCSI_IP_PREFIX}|'"${ISCSI_IP_PREFIX}"'|g}' $file
+sed -i '/${FIXED_RANGE}/{s|${FIXED_RANGE}|'"${FIXED_RANGE}"'|g}' $file
+sed -i '/${FLOATING_RANGE}/{s|${FLOATING_RANGE}|'"${FLOATING_RANGE}"'|g}' $file
+sed -i '/${NETWORK_SIZE}/{s|${NETWORK_SIZE}|'"${NETWORK_SIZE}"'|g}' $file
+sed -i '/${FLAT_NETWORK_DHCP_START}/{s|${FLAT_NETWORK_DHCP_START}|'"${FLAT_NETWORK_DHCP_START}"'|g}' $file
+echo "***************************************************"
+cat $file
+echo "***************************************************"
+# Then, restart all nova services to make the configuration file changes take effect:
+file=./same/nova_restart
+bash $file
+
+file=./same/iptable/show_iptables
+bash $file
+route -n
+ip a
+
+# The next step will create all tables Nova needs in MySQL. While we are at it, we can also create the network we want to use for our VMs in the Nova databases. Do this:
+nova-manage db sync
+
+echo "***************************************************"
+# select from nova db
+mysql -u root -p$MYSQL_PASSWORD <<EOF 
+use nova;
+show tables;
+EOF
+echo "***************************************************"
+echo "***************************************************"
+
+# create fixed ips
+nova-manage network create private --fixed_range_v4=${FIXED_RANGE} --num_networks=1 --bridge=br100 --bridge_interface=eth1 --network_size=${NETWORK_SIZE} 
+
+echo "***************************************************"
+mysql -u root -p$MYSQL_PASSWORD nova <<EOF
+select id,cidr from networks;
+EOF
+mysql -u root -prootpass nova <<EOF
+select id,address,network_id from fixed_ips;
+EOF
+echo "***************************************************"
+# restart nova again
+file=./same/nova_restart
+bash $file
+sleep 2
+
+echo "=========================================================="
+read -p "Press Enter to continue..." var
+echo "=========================================================="
+
+echo "***************************************************"
+mysql -u root -p$MYSQL_PASSWORD nova <<EOF
+select id,host,disabled,topic,availability_zone from services;
+EOF
+
+nova-manage service list
+
+# list all currently running VMs (none, the list should be empty
+nova list
+virsh list
+mysql -u root -p$MYSQL_PASSWORD nova <<EOF
+select id,display_name from instances;
+EOF
+
+# list all images uploaded to glance
+nova image-list
+echo "***************************************************"
+
+#====================================================
+# Step 6: The OpenStack Dashboard
+#====================================================
+# Dashboard
+apt-get -y install libapache2-mod-wsgi openstack-dashboard
+apt-get -y install apache2 
+# openstack-dashboard depends on [python-nova python-novaclient]
+
+service apache2 restart
+#wget 192.168.1.188:80
+# (admin,kezunlin)
+
+#====================================================
+# Step 7: Your first VM
+#====================================================
+# Once Nova works as desired, starting your first own cloud VM is easy
+
+ssh-keygen
+nova keypair-add --pub_key ~/.ssh/id_rsa.pub key1
+nova keypair-list
+nova flavor-list
+nova image-list
+
+#////////////////////////////////////////////////////////////////////////////
+# kzl
+#nova boot --flavor 1 --image 43e71758-a376-409c-8fb7-7050f89ddb6a --key_name key1 vm1 
+#nova list
+
+echo "333333333333333333333333333333333333333333333333333"
+file=./same/iptable/show_iptables
+bash $file
+# nat
+#-A nova-compute-inst-1 -m state --state INVALID -j DROP
+#-A nova-compute-inst-1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+#-A nova-compute-inst-1 -j nova-compute-provider
+#-A nova-compute-inst-1 -s 192.168.2.193/32 -p udp -m udp --sport 67 --dport 68 -j ACCEPT
+#-A nova-compute-inst-1 -s 192.168.2.192/27 -j ACCEPT
+#-A nova-compute-inst-1 -p tcp -m tcp --dport 22 -j ACCEPT
+#-A nova-compute-inst-1 -p icmp -j ACCEPT
+#-A nova-compute-inst-1 -j nova-compute-sg-fallback
+#-A nova-compute-local -d 192.168.2.194/32 -j nova-compute-inst-1
+route -n
+#Kernel IP routing table
+#Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+#192.168.2.192   0.0.0.0         255.255.255.224 U     0      0        0 br100
+ip a
+# add 2 new records for br100 anv vnet0
+#11: br100: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP 
+#    link/ether 5c:f3:fc:b8:64:1a brd ff:ff:ff:ff:ff:ff
+#    inet 192.168.2.193/27 brd 192.168.2.223 scope global br100
+#12: vnet0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master br100 state UNKNOWN qlen 500
+#    link/ether fe:16:3e:40:12:88 brd ff:ff:ff:ff:ff:ff
+echo "333333333333333333333333333333333333333333333333333"
+#////////////////////////////////////////////////////////////////////////////
+#====================================================
+# Step 8: Using floating IPs
+#====================================================
+nova-manage floating create --ip_range=${FLOATING_RANGE}
+
+echo "***************************************************"
+mysql -u root -p$MYSQL_PASSWORD nova <<EOF 
+select id,address from floating_ips;
+EOF
+echo "***************************************************"
+
+#////////////////////////////////////////////////////////////////////////////
+# kzl
+#nova floating-ip-create
+#nova add-floating-ip vm1 192.168.1.193
+#nova list
+#////////////////////////////////////////////////////////////////////////////
+echo "4444444444444444444444444444444444444444444444444444444444444"
+file=./same/iptable/show_iptables
+bash $file
+#-A nova-network-OUTPUT -d 192.168.1.193/32 -j DNAT --to-destination 192.168.2.194
+#-A nova-network-float-snat -s 192.168.2.194/32 -o eth0 -j SNAT --to-source 192.168.1.193
+ip a
+route -n
+echo "4444444444444444444444444444444444444444444444444444444444444"
+
+# modify security group rule so that we can visit the vm1 by floating IP.
+nova secgroup-add-rule default tcp 22 22 0.0.0.0/0
+nova secgroup-add-rule default icmp -1 -1 0.0.0.0/0
+nova secgroup-list
+nova secgroup-list-rules default
+nova list
+
+#////////////////////////////////////////////////////////////////////////////
+#ssh -i ~/.ssh/id_rsa cirros@192.168.2.194
+#ssh -i ~/.ssh/id_rsa cirros@192.168.1.193
+
+#nova get-vnc-console vm1 novnc
+#////////////////////////////////////////////////////////////////////////////
+
+# dnsmasq
+ps -ef | grep dnsmasq
+cat /var/lib/nova/networks/nova-br100.conf
+#fa:16:3e:40:12:88,vm1.novalocal,192.168.2.194
+#fa:16:3e:2f:f0:19,ubuntu1.novalocal,192.168.2.195

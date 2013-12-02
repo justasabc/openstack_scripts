@@ -1,0 +1,21 @@
+# install nova-volume (optional)
+df -h
+#Filesystem      Size  Used Avail Use% Mounted on
+#/dev/sda5       352G  7.4G  327G   3% /
+#/dev/sda1       190M  128K  190M   1% /boot/efi
+#/dev/sda2        93G  1.5G   87G   2% /nova-volume
+
+umount /dev/sda2
+pvcreate /dev/sda2
+#  Physical volume "/dev/sda2" successfully created
+
+vgcreate nova-volumes /dev/sda2
+#  Volume group "nova-volumes" successfully created
+
+vgscan
+#  Reading all physical volumes.  This may take a while...
+#  Found volume group "vg1" using metadata type lvm2
+#  Found volume group "nova-volumes" using metadata type lvm2
+
+# un comment /nova-volume so that this will not be mounted when restart
+sed -i '/nova-volume/s/^/#/' /etc/fstab
