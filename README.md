@@ -4,7 +4,8 @@ OpenStack Scripts
 # 1. introduction
 
 ## 1.1 description
-OpenStack multi-node installer and uninstaller scripts and guides.Feel free to get copy of repository.(https://github.com/justasabc/openstack_scripts.git)
+OpenStack multi-node installer and uninstaller scripts and guides.Feel free to get copy of this repository.
+`git clone https://github.com/justasabc/openstack_scripts.git`
 
 ## 1.2 contributors
 * 2013.12 - [justasabc](http://github.com/justasabc)
