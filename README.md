@@ -27,7 +27,7 @@ source ./set_env
 ## install 
 vim ./same/interfaces
 source ./set_env
-./compute/install
+./node/install
 
 ## uninstall
-./compute/uninstall
+./node/uninstall
