@@ -1,13 +1,19 @@
 OpenStack Scripts
 =================
-# contributors
-* 2013.12 - justasabc
 
-# Description
+# introduction
+
+## description
 OpenStack multi-node installer and uninstaller scripts and guides
 
+## contributors
+* 2013.12 - justasabc
+
+## licenses
+GLP 2.0
+
+------
 # pre
--------
 ## pre check
 
 	vim ./pre/check_cpu
@@ -17,8 +23,8 @@ OpenStack multi-node installer and uninstaller scripts and guides
 	vim ./pre/check_nova_volume
 
 
+------
 # controller node
--------
 ## install 
 
 	vim ./same/interfaces
@@ -34,14 +40,14 @@ OpenStack multi-node installer and uninstaller scripts and guides
 	./controller/nova_install
 
 
+------
 # compute node
--------
-* install 
+## install 
 
 	vim ./same/interfaces
 	source ./set_env
 	./node/install
 
-* uninstall
+## uninstall
 
 	./node/uninstall
