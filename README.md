@@ -1,8 +1,13 @@
-* auto-gen TOC:
-{:toc}
+OpenStack Scripts
+=================
+# contributors
+* 2013.12 - justasabc
+
+# Description
+OpenStack multi-node installer and uninstaller scripts and guides
 
 # pre
-
+-------
 ## pre check
 
 	vim ./pre/check_cpu
@@ -13,7 +18,7 @@
 
 
 # controller node
-
+-------
 ## install 
 
 	vim ./same/interfaces
@@ -30,13 +35,13 @@
 
 
 # compute node
-
-## install 
+-------
+* install 
 
 	vim ./same/interfaces
 	source ./set_env
 	./node/install
 
-## uninstall
+* uninstall
 
 	./node/uninstall
