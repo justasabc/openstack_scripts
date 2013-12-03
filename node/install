@@ -1,42 +1,41 @@
+#!/bin/bash
 #====================================================
-# Step 5: Install and configure Nova
+# Step 1: Prepare your System
 #====================================================
-echo "111111111111111111111111111111111111111111111111111"
-file=./same/iptable/show_iptables
-bash $file
-route -n
-ip a
-echo "111111111111111111111111111111111111111111111111111"
+#apt-get -y update
+#apt-get -y upgrade
 
-# nova 
-mysql -u root -p$MYSQL_PASSWORD <<EOF
-DROP DATABASE IF EXISTS nova;
-CREATE DATABASE nova;
-GRANT ALL PRIVILEGES ON nova.* TO 'novadbadmin'@'%' IDENTIFIED BY 'novadbpass' WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON nova.* TO 'novadbadmin'@'localhost' IDENTIFIED BY 'novadbpass' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-EOF
+echo 1 > /proc/sys/net/ipv4/ip_forward
+apt-get -y install bridge-utils
 
-# install nova
-apt-get -y install nova-api nova-cert nova-common nova-compute nova-compute-kvm nova-doc nova-network nova-objectstore nova-scheduler nova-volume nova-consoleauth novnc python-nova python-novaclient
+# install ntp and configure
+apt-get -y install ntp
+file=/etc/ntp.conf
+sed -i -e " s/^server ntp.ubuntu.com$/server ${CONTROLLER_IP}/g" $file
+service ntp restart
 
-echo "222222222222222222222222222222222222222222222222222"
-file=./same/iptable/show_iptables
-bash $file
-route -n
-ip a
-echo "222222222222222222222222222222222222222222222222222"
+# install iscsi client
+apt-get -y install open-iscsi open-iscsi-utils
+
+#====================================================
+# Step 2: Install nova-compute and nova-network
+#====================================================
+# install nova-compute and nova-network
+apt-get -y install nova-api-metadata nova-compute nova-compute-kvm nova-network python-nova python-novaclient
 
 # change user group of nova
 chown -R nova:nova /etc/nova
+
 file=/etc/nova/api-paste.ini
 sed -i -e " s/%SERVICE_TENANT_NAME%/service/g; s/%SERVICE_USER%/nova/g; s/%SERVICE_PASSWORD%/${SERVICE_PASSWORD}/g; " $file
 echo "***************************************************"
 tail -3 $file
 echo "***************************************************"
 
+read -p "================================================" var
+
 file=/etc/nova/nova.conf
-temp=./same/nova.conf
+temp=../same/nova.conf
 cat $temp >$file
 # replace env to value
 sed -i '/${HOST_IP}/{s|${HOST_IP}|'"${HOST_IP}"'|g}' $file
@@ -50,76 +49,28 @@ sed -i '/${FLAT_NETWORK_DHCP_START}/{s|${FLAT_NETWORK_DHCP_START}|'"${FLAT_NETWO
 echo "***************************************************"
 cat $file
 echo "***************************************************"
+read -p "================================================" var
+
 # Then, restart all nova services to make the configuration file changes take effect:
-file=./same/nova_restart
+file=../same/nova_restart
 bash $file
-
-file=./same/iptable/show_iptables
-bash $file
-route -n
-ip a
-
-# The next step will create all tables Nova needs in MySQL. While we are at it, we can also create the network we want to use for our VMs in the Nova databases. Do this:
-nova-manage db sync
-
-echo "***************************************************"
-# select from nova db
-mysql -u root -p$MYSQL_PASSWORD <<EOF 
-use nova;
-show tables;
-EOF
-echo "***************************************************"
-echo "***************************************************"
-
-# create fixed ips
-nova-manage network create private --fixed_range_v4=${FIXED_RANGE} --num_networks=1 --bridge=br100 --bridge_interface=eth1 --network_size=${NETWORK_SIZE} 
-
-echo "***************************************************"
-mysql -u root -p$MYSQL_PASSWORD nova <<EOF
-select id,cidr from networks;
-EOF
-mysql -u root -prootpass nova <<EOF
-select id,address,network_id from fixed_ips;
-EOF
-echo "***************************************************"
-# restart nova again
-file=./same/nova_restart
-bash $file
-sleep 2
-
-echo "=========================================================="
-read -p "Press Enter to continue..." var
-echo "=========================================================="
-
-echo "***************************************************"
-mysql -u root -p$MYSQL_PASSWORD nova <<EOF
-select id,host,disabled,topic,availability_zone from services;
-EOF
 
 nova-manage service list
 
-# list all currently running VMs (none, the list should be empty
-nova list
-virsh list
-mysql -u root -p$MYSQL_PASSWORD nova <<EOF
-select id,display_name from instances;
-EOF
+# create fixed ips
+nova-manage network create private --fixed_range_v4=${FIXED_RANGE} --num_networks=1 --bridge=br100 --bridge_interface=eth1 --network_size=${NETWORK_SIZE} --multi_host=T
+nova-manage network list
+nova-manage fixed list
 
-# list all images uploaded to glance
-nova image-list
 echo "***************************************************"
-
-#====================================================
-# Step 6: The OpenStack Dashboard
-#====================================================
-# Dashboard
-apt-get -y install libapache2-mod-wsgi openstack-dashboard
-apt-get -y install apache2 
-# openstack-dashboard depends on [python-nova python-novaclient]
-
-service apache2 restart
-#wget 192.168.1.188:80
-# (admin,kezunlin)
+mysql -h $CONTROLLER_IP -u novadbadmin -pnovadbpass nova <<EOF
+select id,cidr from networks;
+EOF
+mysql -h $CONTROLLER_IP -u novadbadmin -pnovadbpass nova <<EOF
+select id,address,network_id from fixed_ips;
+EOF
+echo "***************************************************"
+read -p "================================================" var
 
 #====================================================
 # Step 7: Your first VM
@@ -135,10 +86,16 @@ nova image-list
 #////////////////////////////////////////////////////////////////////////////
 # kzl
 #nova boot --flavor 1 --image 43e71758-a376-409c-8fb7-7050f89ddb6a --key_name key1 vm1 
-#nova list
+
+# list all currently running VMs (none, the list should be empty
+nova list
+virsh list
+mysql -h $CONTROLLER_IP -u novadbadmin -pnovadbpass nova <<EOF
+select id,display_name from instances;
+EOF
 
 echo "333333333333333333333333333333333333333333333333333"
-file=./same/iptable/show_iptables
+file=../same/iptable/show_iptables
 bash $file
 # nat
 #-A nova-compute-inst-1 -m state --state INVALID -j DROP
@@ -163,16 +120,20 @@ ip a
 #    link/ether fe:16:3e:40:12:88 brd ff:ff:ff:ff:ff:ff
 echo "333333333333333333333333333333333333333333333333333"
 #////////////////////////////////////////////////////////////////////////////
+read -p "================================================" var
+
 #====================================================
 # Step 8: Using floating IPs
 #====================================================
 nova-manage floating create --ip_range=${FLOATING_RANGE}
+nova-manage floating list
 
 echo "***************************************************"
-mysql -u root -p$MYSQL_PASSWORD nova <<EOF 
+mysql -h $CONTROLLER_IP -u novadbadmin -pnovadbpass nova <<EOF
 select id,address from floating_ips;
 EOF
 echo "***************************************************"
+read -p "================================================" var
 
 #////////////////////////////////////////////////////////////////////////////
 # kzl
@@ -181,7 +142,7 @@ echo "***************************************************"
 #nova list
 #////////////////////////////////////////////////////////////////////////////
 echo "4444444444444444444444444444444444444444444444444444444444444"
-file=./same/iptable/show_iptables
+file=../same/iptable/show_iptables
 bash $file
 #-A nova-network-OUTPUT -d 192.168.1.193/32 -j DNAT --to-destination 192.168.2.194
 #-A nova-network-float-snat -s 192.168.2.194/32 -o eth0 -j SNAT --to-source 192.168.1.193
@@ -204,7 +165,8 @@ nova list
 #////////////////////////////////////////////////////////////////////////////
 
 # dnsmasq
-ps -ef | grep dnsmasq
-cat /var/lib/nova/networks/nova-br100.conf
+#ps -ef | grep dnsmasq
+#cat /var/lib/nova/networks/nova-br100.conf
 #fa:16:3e:40:12:88,vm1.novalocal,192.168.2.194
 #fa:16:3e:2f:f0:19,ubuntu1.novalocal,192.168.2.195
+

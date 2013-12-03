@@ -1,7 +1,0 @@
-#!/bin/bash
-echo "================================================================"
-# ip forward
-cp ./same/interfaces /etc/network/interfaces
-/etc/init.d/networking restart
-echo "================================================================"
-source ./set_env

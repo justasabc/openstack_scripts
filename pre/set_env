@@ -1,0 +1,18 @@
+#!/bin/bash
+src=../same/interfaces 
+dst=/etc/network/interfaces
+echo "================================================================"
+read -p "Please change ${src} first..." var
+echo "================================================================"
+
+cp $src $dst
+/etc/init.d/networking restart
+
+# echo novarc to bashrc
+srcnovarc=../same/novarc
+dstbashrc=~/.bashrc
+cat $srcnovarc >> $dstbashrc
+source $dstbashrc
+
+# show env
+./show_env

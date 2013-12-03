@@ -1,0 +1,97 @@
+#!/bin/bash
+
+#====================================================
+# Step 5: Install and configure Nova
+#====================================================
+echo "111111111111111111111111111111111111111111111111111"
+file=../same/iptable/show_iptables
+bash $file
+route -n
+ip a
+echo "111111111111111111111111111111111111111111111111111"
+
+# nova 
+mysql -u root -p$MYSQL_PASSWORD <<EOF
+DROP DATABASE IF EXISTS nova;
+CREATE DATABASE nova;
+GRANT ALL PRIVILEGES ON nova.* TO 'novadbadmin'@'%' IDENTIFIED BY 'novadbpass' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON nova.* TO 'novadbadmin'@'localhost' IDENTIFIED BY 'novadbpass' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EOF
+
+# install nova (except for nova-compute nova-compute-kvm)
+apt-get -y install nova-api nova-cert nova-objectstore nova-scheduler nova-volume nova-consoleauth novnc nova-network python-nova python-novaclient
+
+echo "222222222222222222222222222222222222222222222222222"
+file=../same/iptable/show_iptables
+bash $file
+route -n
+ip a
+echo "222222222222222222222222222222222222222222222222222"
+
+# change user group of nova
+chown -R nova:nova /etc/nova
+file=/etc/nova/api-paste.ini
+sed -i -e " s/%SERVICE_TENANT_NAME%/service/g; s/%SERVICE_USER%/nova/g; s/%SERVICE_PASSWORD%/${SERVICE_PASSWORD}/g; " $file
+echo "***************************************************"
+tail -3 $file
+echo "***************************************************"
+
+file=/etc/nova/nova.conf
+temp=../same/nova.conf
+cat $temp >$file
+# replace env to value
+sed -i '/${HOST_IP}/{s|${HOST_IP}|'"${HOST_IP}"'|g}' $file
+sed -i '/${CONTROLLER_IP}/{s|${CONTROLLER_IP}|'"${CONTROLLER_IP}"'|g}' $file
+sed -i '/${ISCSI_IP_PREFIX}/{s|${ISCSI_IP_PREFIX}|'"${ISCSI_IP_PREFIX}"'|g}' $file
+sed -i '/${ISCSI_IP_PREFIX}/{s|${ISCSI_IP_PREFIX}|'"${ISCSI_IP_PREFIX}"'|g}' $file
+sed -i '/${FIXED_RANGE}/{s|${FIXED_RANGE}|'"${FIXED_RANGE}"'|g}' $file
+sed -i '/${FLOATING_RANGE}/{s|${FLOATING_RANGE}|'"${FLOATING_RANGE}"'|g}' $file
+sed -i '/${NETWORK_SIZE}/{s|${NETWORK_SIZE}|'"${NETWORK_SIZE}"'|g}' $file
+sed -i '/${FLAT_NETWORK_DHCP_START}/{s|${FLAT_NETWORK_DHCP_START}|'"${FLAT_NETWORK_DHCP_START}"'|g}' $file
+echo "***************************************************"
+cat $file
+echo "***************************************************"
+# Then, restart all nova services to make the configuration file changes take effect:
+file=../same/nova_restart
+bash $file
+
+file=../same/iptable/show_iptables
+bash $file
+route -n
+ip a
+
+# The next step will create all tables Nova needs in MySQL. While we are at it, we can also create the network we want to use for our VMs in the Nova databases. Do this:
+nova-manage db sync
+
+echo "***************************************************"
+# select from nova db
+mysql -u root -p$MYSQL_PASSWORD <<EOF 
+use nova;
+show tables;
+EOF
+echo "***************************************************"
+
+# restart nova again
+file=../same/nova_restart
+bash $file
+sleep 2
+
+echo "***************************************************"
+mysql -u root -p$MYSQL_PASSWORD nova <<EOF
+select id,host,disabled,topic,availability_zone from services;
+EOF
+echo "***************************************************"
+
+nova-manage service list
+
+#====================================================
+# Step 6: The OpenStack Dashboard
+#====================================================
+# Dashboard
+apt-get -y install apache2 
+apt-get -y install libapache2-mod-wsgi openstack-dashboard
+
+service apache2 restart
+#wget 192.168.1.188:80
+# (admin,kezunlin)

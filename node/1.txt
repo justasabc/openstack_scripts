@@ -1,0 +1,1060 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  bridge-utils
+0 upgraded, 1 newly installed, 0 to remove and 8 not upgraded.
+Need to get 0 B/32.0 kB of archives.
+After this operation, 142 kB of additional disk space will be used.
+Selecting previously unselected package bridge-utils.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 49544 files and directories currently installed.)
+Unpacking bridge-utils (from .../bridge-utils_1.5-2ubuntu7_amd64.deb) ...
+Processing triggers for man-db ...
+Setting up bridge-utils (1.5-2ubuntu7) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libcap2 libopts25
+Suggested packages:
+  ntp-doc
+The following NEW packages will be installed:
+  libcap2 libopts25 ntp
+0 upgraded, 3 newly installed, 0 to remove and 8 not upgraded.
+Need to get 0 B/684 kB of archives.
+After this operation, 1,765 kB of additional disk space will be used.
+Selecting previously unselected package libcap2.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 49569 files and directories currently installed.)
+Unpacking libcap2 (from .../libcap2_1%3a2.22-1ubuntu3_amd64.deb) ...
+Selecting previously unselected package libopts25.
+Unpacking libopts25 (from .../libopts25_1%3a5.12-0.1ubuntu1_amd64.deb) ...
+Selecting previously unselected package ntp.
+Unpacking ntp (from .../ntp_1%3a4.2.6.p3+dfsg-1ubuntu3.1_amd64.deb) ...
+Processing triggers for ureadahead ...
+Processing triggers for man-db ...
+Setting up libcap2 (1:2.22-1ubuntu3) ...
+Setting up libopts25 (1:5.12-0.1ubuntu1) ...
+Setting up ntp (1:4.2.6.p3+dfsg-1ubuntu3.1) ...
+ * Starting NTP server ntpd       [80G [74G[ OK ]
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+ * Stopping NTP server ntpd
+   ...done.
+ * Starting NTP server ntpd
+   ...done.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  open-iscsi open-iscsi-utils
+0 upgraded, 2 newly installed, 0 to remove and 8 not upgraded.
+Need to get 0 B/718 kB of archives.
+After this operation, 1,786 kB of additional disk space will be used.
+Selecting previously unselected package open-iscsi-utils.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 49619 files and directories currently installed.)
+Unpacking open-iscsi-utils (from .../open-iscsi-utils_2.0.871-0ubuntu9.12.04.2_amd64.deb) ...
+Selecting previously unselected package open-iscsi.
+Unpacking open-iscsi (from .../open-iscsi_2.0.871-0ubuntu9.12.04.2_amd64.deb) ...
+Processing triggers for man-db ...
+Processing triggers for ureadahead ...
+Setting up open-iscsi-utils (2.0.871-0ubuntu9.12.04.2) ...
+Setting up open-iscsi (2.0.871-0ubuntu9.12.04.2) ...
+update-rc.d: warning: open-iscsi stop runlevel arguments (0 1 6) do not match LSB Default-Stop values (0 6)
+ * Starting iSCSI initiator service iscsid       [80G [74G[ OK ]
+ * Setting up iSCSI targets       [80G [74G[ OK ]
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  acl cgroup-lite dnsmasq-base dnsmasq-utils ebtables iputils-arping kpartx
+  kvm kvm-ipxe libaio1 libapparmor1 libasound2 libasyncns0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcaca0 libflac8 libjs-sphinxdoc
+  libjs-underscore libjson0 libmysqlclient18 libnetfilter-conntrack3 libnspr4
+  libnss3 libnuma1 libogg0 libpulse0 librados2 librbd1 libsdl1.2debian
+  libsndfile1 libsysfs2 libtidy-0.99-0 libvirt-bin libvirt0 libvorbis0a
+  libvorbisenc2 libxenstore3.0 libxml2-utils libxslt1.1 libyajl1 libyaml-0-2
+  mysql-common nova-common python-amqplib python-anyjson python-boto
+  python-carrot python-cheetah python-daemon python-dateutil python-decorator
+  python-dingus python-eventlet python-feedparser python-formencode
+  python-gflags python-glance python-greenlet python-iso8601 python-kombu
+  python-ldap python-libvirt python-libxml2 python-lockfile python-lxml
+  python-m2crypto python-migrate python-mysqldb python-netaddr python-nose
+  python-openid python-paste python-pastedeploy python-pastescript
+  python-prettytable python-pycurl python-routes python-scgi python-sqlalchemy
+  python-sqlalchemy-ext python-stompy python-suds python-tempita
+  python-utidylib python-webob python-xattr python-yaml qemu-common qemu-kvm
+  qemu-utils seabios vgabios vlan
+Suggested packages:
+  libasound2-plugins libasound2-python javascript-common pulseaudio
+  policykit-1 pm-utils radvd python-keystone python-amqplib-doc
+  python-markdown python-pygments python-memcache python-egenix-mxdatetime
+  python-dns python-greenlet-doc python-greenlet-dev python-greenlet-dbg
+  python-couchdb python-kombu-doc python-pymongo python-ldap-doc
+  python-lxml-dbg mysql-server-5.1 mysql-server python-mysqldb-dbg ipython
+  python-coverage python-nose-doc python-pastewebkit libapache2-mod-wsgi
+  libapache2-mod-python libapache2-mod-scgi python-pgsql libjs-mochikit
+  python-flup python-cherrypy libcurl4-gnutls-dev python-pycurl-dbg
+  python-sqlalchemy-doc python-psycopg2 python-kinterbasdb python-pymssql
+  mol-drivers-macosx openbios-sparc ubuntu-vm-builder uml-utilities
+The following NEW packages will be installed:
+  acl cgroup-lite dnsmasq-base dnsmasq-utils ebtables iputils-arping kpartx
+  kvm kvm-ipxe libaio1 libapparmor1 libasound2 libasyncns0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcaca0 libflac8 libjs-sphinxdoc
+  libjs-underscore libjson0 libmysqlclient18 libnetfilter-conntrack3 libnspr4
+  libnss3 libnuma1 libogg0 libpulse0 librados2 librbd1 libsdl1.2debian
+  libsndfile1 libsysfs2 libtidy-0.99-0 libvirt-bin libvirt0 libvorbis0a
+  libvorbisenc2 libxenstore3.0 libxml2-utils libxslt1.1 libyajl1 libyaml-0-2
+  mysql-common nova-api-metadata nova-common nova-compute nova-compute-kvm
+  nova-network python-amqplib python-anyjson python-boto python-carrot
+  python-cheetah python-daemon python-dateutil python-decorator python-dingus
+  python-eventlet python-feedparser python-formencode python-gflags
+  python-glance python-greenlet python-iso8601 python-kombu python-ldap
+  python-libvirt python-libxml2 python-lockfile python-lxml python-m2crypto
+  python-migrate python-mysqldb python-netaddr python-nose python-nova
+  python-novaclient python-openid python-paste python-pastedeploy
+  python-pastescript python-prettytable python-pycurl python-routes
+  python-scgi python-sqlalchemy python-sqlalchemy-ext python-stompy
+  python-suds python-tempita python-utidylib python-webob python-xattr
+  python-yaml qemu-common qemu-kvm qemu-utils seabios vgabios vlan
+0 upgraded, 101 newly installed, 0 to remove and 8 not upgraded.
+Need to get 0 B/20.6 MB of archives.
+After this operation, 89.5 MB of additional disk space will be used.
+Selecting previously unselected package libaio1.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 49648 files and directories currently installed.)
+Unpacking libaio1 (from .../libaio1_0.3.109-2ubuntu1_amd64.deb) ...
+Selecting previously unselected package libasound2.
+Unpacking libasound2 (from .../libasound2_1.0.25-1ubuntu10.2_amd64.deb) ...
+Selecting previously unselected package libasyncns0.
+Unpacking libasyncns0 (from .../libasyncns0_0.8-4_amd64.deb) ...
+Selecting previously unselected package libavahi-common-data.
+Unpacking libavahi-common-data (from .../libavahi-common-data_0.6.30-5ubuntu2_amd64.deb) ...
+Selecting previously unselected package libavahi-common3.
+Unpacking libavahi-common3 (from .../libavahi-common3_0.6.30-5ubuntu2_amd64.deb) ...
+Selecting previously unselected package libavahi-client3.
+Unpacking libavahi-client3 (from .../libavahi-client3_0.6.30-5ubuntu2_amd64.deb) ...
+Selecting previously unselected package libcaca0.
+Unpacking libcaca0 (from .../libcaca0_0.99.beta17-2.1ubuntu2_amd64.deb) ...
+Selecting previously unselected package libogg0.
+Unpacking libogg0 (from .../libogg0_1.2.2~dfsg-1ubuntu1_amd64.deb) ...
+Selecting previously unselected package libflac8.
+Unpacking libflac8 (from .../libflac8_1.2.1-6_amd64.deb) ...
+Selecting previously unselected package mysql-common.
+Unpacking mysql-common (from .../mysql-common_5.5.34-0ubuntu0.12.04.1_all.deb) ...
+Selecting previously unselected package libmysqlclient18.
+Unpacking libmysqlclient18 (from .../libmysqlclient18_5.5.34-0ubuntu0.12.04.1_amd64.deb) ...
+Selecting previously unselected package libnspr4.
+Unpacking libnspr4 (from .../libnspr4_4.9.5-0ubuntu0.12.04.1_amd64.deb) ...
+Selecting previously unselected package libnss3.
+Unpacking libnss3 (from .../libnss3_3.15.3-0ubuntu0.12.04.1_amd64.deb) ...
+Selecting previously unselected package libjson0.
+Unpacking libjson0 (from .../libjson0_0.9-1ubuntu1_amd64.deb) ...
+Selecting previously unselected package libvorbis0a.
+Unpacking libvorbis0a (from .../libvorbis0a_1.3.2-1ubuntu3_amd64.deb) ...
+Selecting previously unselected package libvorbisenc2.
+Unpacking libvorbisenc2 (from .../libvorbisenc2_1.3.2-1ubuntu3_amd64.deb) ...
+Selecting previously unselected package libsndfile1.
+Unpacking libsndfile1 (from .../libsndfile1_1.0.25-4_amd64.deb) ...
+Selecting previously unselected package libpulse0.
+Unpacking libpulse0 (from .../libpulse0_1%3a1.1-0ubuntu15.4_amd64.deb) ...
+Selecting previously unselected package libsdl1.2debian.
+Unpacking libsdl1.2debian (from .../libsdl1.2debian_1.2.14-6.4ubuntu3_amd64.deb) ...
+Selecting previously unselected package libxslt1.1.
+Unpacking libxslt1.1 (from .../libxslt1.1_1.1.26-8ubuntu1.3_amd64.deb) ...
+Selecting previously unselected package libyaml-0-2.
+Unpacking libyaml-0-2 (from .../libyaml-0-2_0.1.4-2_amd64.deb) ...
+Selecting previously unselected package python-m2crypto.
+Unpacking python-m2crypto (from .../python-m2crypto_0.21.1-2ubuntu2_amd64.deb) ...
+Selecting previously unselected package acl.
+Unpacking acl (from .../acl_2.2.51-5ubuntu1_amd64.deb) ...
+Selecting previously unselected package seabios.
+Unpacking seabios (from .../seabios_0.6.2-0ubuntu2.1_all.deb) ...
+Selecting previously unselected package vgabios.
+Unpacking vgabios (from .../vgabios_0.6c-2ubuntu3_all.deb) ...
+Selecting previously unselected package qemu-common.
+Unpacking qemu-common (from .../qemu-common_1.0+noroms-0ubuntu14.12_all.deb) ...
+Selecting previously unselected package librados2.
+Unpacking librados2 (from .../librados2_0.41-1ubuntu2.1_amd64.deb) ...
+Selecting previously unselected package librbd1.
+Unpacking librbd1 (from .../librbd1_0.41-1ubuntu2.1_amd64.deb) ...
+Selecting previously unselected package qemu-utils.
+Unpacking qemu-utils (from .../qemu-utils_1.0+noroms-0ubuntu14.12_amd64.deb) ...
+Selecting previously unselected package qemu-kvm.
+Unpacking qemu-kvm (from .../qemu-kvm_1.0+noroms-0ubuntu14.12_amd64.deb) ...
+Selecting previously unselected package libyajl1.
+Unpacking libyajl1 (from .../libyajl1_1.0.12-2_amd64.deb) ...
+Selecting previously unselected package libnetfilter-conntrack3.
+Unpacking libnetfilter-conntrack3 (from .../libnetfilter-conntrack3_0.9.1-1ubuntu1_amd64.deb) ...
+Selecting previously unselected package dnsmasq-base.
+Unpacking dnsmasq-base (from .../dnsmasq-base_2.59-4ubuntu0.1_amd64.deb) ...
+Selecting previously unselected package dnsmasq-utils.
+Unpacking dnsmasq-utils (from .../dnsmasq-utils_2.59-4ubuntu0.1_amd64.deb) ...
+Selecting previously unselected package ebtables.
+Unpacking ebtables (from .../ebtables_2.0.9.2-2ubuntu2_amd64.deb) ...
+Selecting previously unselected package libsysfs2.
+Unpacking libsysfs2 (from .../libsysfs2_2.1.0+repack-1_amd64.deb) ...
+Selecting previously unselected package iputils-arping.
+Unpacking iputils-arping (from .../iputils-arping_3%3a20101006-1ubuntu1_amd64.deb) ...
+Selecting previously unselected package kvm.
+Unpacking kvm (from .../kvm_1%3a84+dfsg-0ubuntu16+1.0+noroms+0ubuntu14.12_amd64.deb) ...
+Selecting previously unselected package kvm-ipxe.
+Unpacking kvm-ipxe (from .../kvm-ipxe_1.0.0+git-3.55f6c88-0ubuntu1_all.deb) ...
+Selecting previously unselected package libapparmor1.
+Unpacking libapparmor1 (from .../libapparmor1_2.7.102-0ubuntu3.9_amd64.deb) ...
+Selecting previously unselected package libjs-underscore.
+Unpacking libjs-underscore (from .../libjs-underscore_1.1.6-1ubuntu2_all.deb) ...
+Selecting previously unselected package libjs-sphinxdoc.
+Unpacking libjs-sphinxdoc (from .../libjs-sphinxdoc_1.1.3+dfsg-2ubuntu2.1_all.deb) ...
+Selecting previously unselected package libnuma1.
+Unpacking libnuma1 (from .../libnuma1_2.0.8~rc3-1_amd64.deb) ...
+Selecting previously unselected package libtidy-0.99-0.
+Unpacking libtidy-0.99-0 (from .../libtidy-0.99-0_20091223cvs-1ubuntu2_amd64.deb) ...
+Selecting previously unselected package libxenstore3.0.
+Unpacking libxenstore3.0 (from .../libxenstore3.0_4.1.2-2ubuntu2.10_amd64.deb) ...
+Selecting previously unselected package libvirt0.
+Unpacking libvirt0 (from .../libvirt0_0.9.8-2ubuntu17.16_amd64.deb) ...
+Selecting previously unselected package cgroup-lite.
+Unpacking cgroup-lite (from .../cgroup-lite_1.1.2_all.deb) ...
+Selecting previously unselected package libvirt-bin.
+Unpacking libvirt-bin (from .../libvirt-bin_0.9.8-2ubuntu17.16_amd64.deb) ...
+Selecting previously unselected package libxml2-utils.
+Unpacking libxml2-utils (from .../libxml2-utils_2.7.8.dfsg-5.1ubuntu4.6_amd64.deb) ...
+Selecting previously unselected package python-amqplib.
+Unpacking python-amqplib (from .../python-amqplib_1.0.0+ds-1_all.deb) ...
+Selecting previously unselected package python-anyjson.
+Unpacking python-anyjson (from .../python-anyjson_0.3.1-1build1_all.deb) ...
+Selecting previously unselected package python-boto.
+Unpacking python-boto (from .../python-boto_2.2.2-0ubuntu3_all.deb) ...
+Selecting previously unselected package python-carrot.
+Unpacking python-carrot (from .../python-carrot_0.10.7-1ubuntu1_all.deb) ...
+Selecting previously unselected package python-cheetah.
+Unpacking python-cheetah (from .../python-cheetah_2.4.4-2ubuntu3_amd64.deb) ...
+Selecting previously unselected package python-lockfile.
+Unpacking python-lockfile (from .../python-lockfile_1%3a0.8-2ubuntu1_all.deb) ...
+Selecting previously unselected package python-daemon.
+Unpacking python-daemon (from .../python-daemon_1.5.5-1ubuntu1_all.deb) ...
+Selecting previously unselected package python-dateutil.
+Unpacking python-dateutil (from .../python-dateutil_1.5-1_all.deb) ...
+Selecting previously unselected package python-decorator.
+Unpacking python-decorator (from .../python-decorator_3.3.2-1_all.deb) ...
+Selecting previously unselected package python-dingus.
+Unpacking python-dingus (from .../python-dingus_0.3.2-1ubuntu1_all.deb) ...
+Selecting previously unselected package python-greenlet.
+Unpacking python-greenlet (from .../python-greenlet_0.3.1-1ubuntu5.1_amd64.deb) ...
+Selecting previously unselected package python-eventlet.
+Unpacking python-eventlet (from .../python-eventlet_0.9.16-1ubuntu4.2_all.deb) ...
+Selecting previously unselected package python-feedparser.
+Unpacking python-feedparser (from .../python-feedparser_5.1-0ubuntu3.1_all.deb) ...
+Selecting previously unselected package python-formencode.
+Unpacking python-formencode (from .../python-formencode_1.2.4-2ubuntu2_all.deb) ...
+Selecting previously unselected package python-gflags.
+Unpacking python-gflags (from .../python-gflags_1.5.1-1build1_all.deb) ...
+Selecting previously unselected package python-kombu.
+Unpacking python-kombu (from .../python-kombu_1.4.3-1_all.deb) ...
+Selecting previously unselected package python-ldap.
+Unpacking python-ldap (from .../python-ldap_2.3.13-1build1_amd64.deb) ...
+Selecting previously unselected package python-libvirt.
+Unpacking python-libvirt (from .../python-libvirt_0.9.8-2ubuntu17.16_amd64.deb) ...
+Selecting previously unselected package python-libxml2.
+Unpacking python-libxml2 (from .../python-libxml2_2.7.8.dfsg-5.1ubuntu4.6_amd64.deb) ...
+Selecting previously unselected package python-lxml.
+Unpacking python-lxml (from .../python-lxml_2.3.2-1_amd64.deb) ...
+Selecting previously unselected package python-sqlalchemy.
+Unpacking python-sqlalchemy (from .../python-sqlalchemy_0.7.4-1ubuntu0.1_all.deb) ...
+Selecting previously unselected package python-tempita.
+Unpacking python-tempita (from .../python-tempita_0.5.1-1build1_all.deb) ...
+Selecting previously unselected package python-migrate.
+Unpacking python-migrate (from .../python-migrate_0.7.2-1ubuntu1_all.deb) ...
+Selecting previously unselected package python-mysqldb.
+Unpacking python-mysqldb (from .../python-mysqldb_1.2.3-1ubuntu0.1_amd64.deb) ...
+Selecting previously unselected package python-netaddr.
+Unpacking python-netaddr (from .../python-netaddr_0.7.5-4build2_all.deb) ...
+Selecting previously unselected package python-nose.
+Unpacking python-nose (from .../python-nose_1.1.2-3_all.deb) ...
+Selecting previously unselected package python-prettytable.
+Unpacking python-prettytable (from .../python-prettytable_0.5-1ubuntu2_all.deb) ...
+Selecting previously unselected package python-novaclient.
+Unpacking python-novaclient (from .../python-novaclient_2012.1-0ubuntu1_all.deb) ...
+Selecting previously unselected package python-openid.
+Unpacking python-openid (from .../python-openid_2.2.5-3ubuntu1_all.deb) ...
+Selecting previously unselected package python-paste.
+Unpacking python-paste (from .../python-paste_1.7.5.1-4ubuntu2_all.deb) ...
+Selecting previously unselected package python-pastedeploy.
+Unpacking python-pastedeploy (from .../python-pastedeploy_1.5.0-2build1_all.deb) ...
+Selecting previously unselected package python-pastescript.
+Unpacking python-pastescript (from .../python-pastescript_1.7.5-1_all.deb) ...
+Selecting previously unselected package python-routes.
+Unpacking python-routes (from .../python-routes_1.12.3-1ubuntu1_all.deb) ...
+Selecting previously unselected package python-scgi.
+Unpacking python-scgi (from .../python-scgi_1.13-1ubuntu1_amd64.deb) ...
+Selecting previously unselected package python-sqlalchemy-ext.
+Unpacking python-sqlalchemy-ext (from .../python-sqlalchemy-ext_0.7.4-1ubuntu0.1_amd64.deb) ...
+Selecting previously unselected package python-stompy.
+Unpacking python-stompy (from .../python-stompy_0.2.9-1ubuntu1_all.deb) ...
+Selecting previously unselected package python-suds.
+Unpacking python-suds (from .../python-suds_0.4.1-2ubuntu1.1_all.deb) ...
+Selecting previously unselected package python-utidylib.
+Unpacking python-utidylib (from .../python-utidylib_0.2-8build1_all.deb) ...
+Selecting previously unselected package python-xattr.
+Unpacking python-xattr (from .../python-xattr_0.6.2-1ubuntu1_amd64.deb) ...
+Selecting previously unselected package python-yaml.
+Unpacking python-yaml (from .../python-yaml_3.10-2_amd64.deb) ...
+Selecting previously unselected package kpartx.
+Unpacking kpartx (from .../kpartx_0.4.9-3ubuntu5_amd64.deb) ...
+Selecting previously unselected package python-pycurl.
+Unpacking python-pycurl (from .../python-pycurl_7.19.0-4ubuntu3_amd64.deb) ...
+Selecting previously unselected package python-webob.
+Unpacking python-webob (from .../python-webob_1.1.1-1ubuntu0_all.deb) ...
+Selecting previously unselected package python-iso8601.
+Unpacking python-iso8601 (from .../python-iso8601_0.1.4-1ubuntu1_all.deb) ...
+Selecting previously unselected package python-glance.
+Unpacking python-glance (from .../python-glance_2012.1.3+stable-20130423-74b067df-0ubuntu1_all.deb) ...
+Selecting previously unselected package python-nova.
+Unpacking python-nova (from .../python-nova_2012.1.3+stable-20130423-e52e6912-0ubuntu1.2_all.deb) ...
+Selecting previously unselected package nova-common.
+Unpacking nova-common (from .../nova-common_2012.1.3+stable-20130423-e52e6912-0ubuntu1.2_all.deb) ...
+Selecting previously unselected package nova-api-metadata.
+Unpacking nova-api-metadata (from .../nova-api-metadata_2012.1.3+stable-20130423-e52e6912-0ubuntu1.2_all.deb) ...
+Selecting previously unselected package vlan.
+Unpacking vlan (from .../vlan_1.9-3ubuntu6_amd64.deb) ...
+Selecting previously unselected package nova-compute-kvm.
+Unpacking nova-compute-kvm (from .../nova-compute-kvm_2012.1.3+stable-20130423-e52e6912-0ubuntu1.2_all.deb) ...
+Selecting previously unselected package nova-compute.
+Unpacking nova-compute (from .../nova-compute_2012.1.3+stable-20130423-e52e6912-0ubuntu1.2_all.deb) ...
+Selecting previously unselected package nova-network.
+Unpacking nova-network (from .../nova-network_2012.1.3+stable-20130423-e52e6912-0ubuntu1.2_all.deb) ...
+Processing triggers for man-db ...
+Processing triggers for ureadahead ...
+Setting up libaio1 (0.3.109-2ubuntu1) ...
+Setting up libasound2 (1.0.25-1ubuntu10.2) ...
+Setting up libasyncns0 (0.8-4) ...
+Setting up libavahi-common-data (0.6.30-5ubuntu2) ...
+Setting up libavahi-common3 (0.6.30-5ubuntu2) ...
+Setting up libavahi-client3 (0.6.30-5ubuntu2) ...
+Setting up libcaca0 (0.99.beta17-2.1ubuntu2) ...
+Setting up libogg0 (1.2.2~dfsg-1ubuntu1) ...
+Setting up libflac8 (1.2.1-6) ...
+Setting up mysql-common (5.5.34-0ubuntu0.12.04.1) ...
+Setting up libmysqlclient18 (5.5.34-0ubuntu0.12.04.1) ...
+Setting up libnspr4 (4.9.5-0ubuntu0.12.04.1) ...
+Setting up libnss3 (3.15.3-0ubuntu0.12.04.1) ...
+Setting up libjson0 (0.9-1ubuntu1) ...
+Setting up libvorbis0a (1.3.2-1ubuntu3) ...
+Setting up libvorbisenc2 (1.3.2-1ubuntu3) ...
+Setting up libsndfile1 (1.0.25-4) ...
+Setting up libpulse0 (1:1.1-0ubuntu15.4) ...
+Setting up libsdl1.2debian (1.2.14-6.4ubuntu3) ...
+Setting up libxslt1.1 (1.1.26-8ubuntu1.3) ...
+Setting up libyaml-0-2 (0.1.4-2) ...
+Setting up python-m2crypto (0.21.1-2ubuntu2) ...
+Setting up acl (2.2.51-5ubuntu1) ...
+Setting up seabios (0.6.2-0ubuntu2.1) ...
+Setting up vgabios (0.6c-2ubuntu3) ...
+Setting up qemu-common (1.0+noroms-0ubuntu14.12) ...
+Setting up librados2 (0.41-1ubuntu2.1) ...
+Setting up librbd1 (0.41-1ubuntu2.1) ...
+Setting up qemu-utils (1.0+noroms-0ubuntu14.12) ...
+Setting up qemu-kvm (1.0+noroms-0ubuntu14.12) ...
+qemu-kvm start/running
+Setting up libyajl1 (1.0.12-2) ...
+Setting up libnetfilter-conntrack3 (0.9.1-1ubuntu1) ...
+Setting up dnsmasq-base (2.59-4ubuntu0.1) ...
+Setting up dnsmasq-utils (2.59-4ubuntu0.1) ...
+Setting up ebtables (2.0.9.2-2ubuntu2) ...
+Setting up libsysfs2 (2.1.0+repack-1) ...
+Setting up iputils-arping (3:20101006-1ubuntu1) ...
+Setting up kvm (1:84+dfsg-0ubuntu16+1.0+noroms+0ubuntu14.12) ...
+Setting up kvm-ipxe (1.0.0+git-3.55f6c88-0ubuntu1) ...
+Setting up libapparmor1 (2.7.102-0ubuntu3.9) ...
+Setting up libjs-underscore (1.1.6-1ubuntu2) ...
+Setting up libjs-sphinxdoc (1.1.3+dfsg-2ubuntu2.1) ...
+Setting up libnuma1 (2.0.8~rc3-1) ...
+Setting up libtidy-0.99-0 (20091223cvs-1ubuntu2) ...
+Setting up libxenstore3.0 (4.1.2-2ubuntu2.10) ...
+Setting up libvirt0 (0.9.8-2ubuntu17.16) ...
+Setting up cgroup-lite (1.1.2) ...
+cgroup-lite start/running
+Setting up libvirt-bin (0.9.8-2ubuntu17.16) ...
+libvirt-bin start/running, process 525
+Setting up libvirt-bin dnsmasq configuration.
+Setting up libxml2-utils (2.7.8.dfsg-5.1ubuntu4.6) ...
+Setting up python-amqplib (1.0.0+ds-1) ...
+Setting up python-anyjson (0.3.1-1build1) ...
+Setting up python-boto (2.2.2-0ubuntu3) ...
+Setting up python-carrot (0.10.7-1ubuntu1) ...
+Setting up python-cheetah (2.4.4-2ubuntu3) ...
+Setting up python-lockfile (1:0.8-2ubuntu1) ...
+Setting up python-daemon (1.5.5-1ubuntu1) ...
+Setting up python-dateutil (1.5-1) ...
+Setting up python-decorator (3.3.2-1) ...
+Setting up python-dingus (0.3.2-1ubuntu1) ...
+Setting up python-greenlet (0.3.1-1ubuntu5.1) ...
+Setting up python-eventlet (0.9.16-1ubuntu4.2) ...
+Setting up python-feedparser (5.1-0ubuntu3.1) ...
+Setting up python-formencode (1.2.4-2ubuntu2) ...
+Setting up python-gflags (1.5.1-1build1) ...
+Setting up python-kombu (1.4.3-1) ...
+Setting up python-ldap (2.3.13-1build1) ...
+Setting up python-libvirt (0.9.8-2ubuntu17.16) ...
+Setting up python-libxml2 (2.7.8.dfsg-5.1ubuntu4.6) ...
+Setting up python-lxml (2.3.2-1) ...
+Setting up python-sqlalchemy (0.7.4-1ubuntu0.1) ...
+Setting up python-tempita (0.5.1-1build1) ...
+Setting up python-migrate (0.7.2-1ubuntu1) ...
+Setting up python-mysqldb (1.2.3-1ubuntu0.1) ...
+Setting up python-netaddr (0.7.5-4build2) ...
+Setting up python-nose (1.1.2-3) ...
+Setting up python-prettytable (0.5-1ubuntu2) ...
+Setting up python-novaclient (2012.1-0ubuntu1) ...
+Setting up python-openid (2.2.5-3ubuntu1) ...
+Setting up python-paste (1.7.5.1-4ubuntu2) ...
+Setting up python-pastedeploy (1.5.0-2build1) ...
+Setting up python-pastescript (1.7.5-1) ...
+Setting up python-routes (1.12.3-1ubuntu1) ...
+Setting up python-scgi (1.13-1ubuntu1) ...
+Setting up python-sqlalchemy-ext (0.7.4-1ubuntu0.1) ...
+Setting up python-stompy (0.2.9-1ubuntu1) ...
+Setting up python-suds (0.4.1-2ubuntu1.1) ...
+Setting up python-utidylib (0.2-8build1) ...
+Setting up python-xattr (0.6.2-1ubuntu1) ...
+Setting up python-yaml (3.10-2) ...
+Setting up kpartx (0.4.9-3ubuntu5) ...
+Setting up python-pycurl (7.19.0-4ubuntu3) ...
+Setting up python-webob (1.1.1-1ubuntu0) ...
+Setting up python-iso8601 (0.1.4-1ubuntu1) ...
+Setting up python-glance (2012.1.3+stable-20130423-74b067df-0ubuntu1) ...
+Setting up python-nova (2012.1.3+stable-20130423-e52e6912-0ubuntu1.2) ...
+Setting up nova-common (2012.1.3+stable-20130423-e52e6912-0ubuntu1.2) ...
+usermod: no changes
+2013-12-02 22:09:05 DEBUG nova.utils [-] backend <module 'nova.db.sqlalchemy.migration' from '/usr/lib/python2.7/dist-packages/nova/db/sqlalchemy/migration.pyc'> from (pid=891) __get_backend /usr/lib/python2.7/dist-packages/nova/utils.py:663
+Setting up nova-api-metadata (2012.1.3+stable-20130423-e52e6912-0ubuntu1.2) ...
+nova-api-metadata start/running, process 934
+Setting up vlan (1.9-3ubuntu6) ...
+Setting up nova-network (2012.1.3+stable-20130423-e52e6912-0ubuntu1.2) ...
+nova-network start/running, process 981
+Setting up nova-compute-kvm (2012.1.3+stable-20130423-e52e6912-0ubuntu1.2) ...
+Setting up nova-compute (2012.1.3+stable-20130423-e52e6912-0ubuntu1.2) ...
+nova-compute start/running, process 1047
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+***************************************************
+admin_tenant_name = service
+admin_user = nova
+admin_password = kezunlin
+***************************************************
+***************************************************
+# file
+--dhcpbridge_flagfile=/etc/nova/nova.conf
+--dhcpbridge=/usr/bin/nova-dhcpbridge
+--api_paste_config=/etc/nova/api-paste.ini
+--logdir=/var/log/nova
+--state_path=/var/lib/nova
+--lock_path=/var/lock/nova
+--root_helper=sudo nova-rootwrap
+--verbose=False
+
+# mysql
+--sql_connection=mysql://novadbadmin:novadbpass@192.168.1.188/nova
+
+# API
+--s3_host=192.168.1.188
+--ec2_host=192.168.1.188
+--rabbit_host=192.168.1.188
+--cc_host=192.168.1.188
+--nova_url=http://192.168.1.188:8774/v1.1/
+--ec2_url=http://192.168.1.188:8773/services/Cloud
+--keystone_ec2_url=http://192.168.1.188:5000/v2.0/ec2tokens
+--auth_strategy=keystone
+--allow_admin_api=true
+--use_deprecated_auth=false
+--ec2_private_dns_show
+
+# nova-schedule
+--scheduler_driver=nova.scheduler.simple.SimpleScheduler
+
+# nova-volume
+--iscsi_ip_prefix=192.168.2
+--iscsi_helper=tgtadm
+
+# glance
+--glance_api_servers=192.168.1.188:9292
+--image_service=nova.image.glance.GlanceImageService
+
+# vnc
+--vnc_enabled=true
+--vncproxy_url=http://192.168.1.188:6080
+--vnc_console_proxy_url=http://192.168.1.188:6080
+--novnc_enabled=true
+--novncproxy_base_url=http://192.168.1.188:6080/vnc_auto.html
+#==================================================================
+--vncserver_proxyclient_address=192.168.1.189
+--vncserver_listen=192.168.1.189
+#==================================================================
+
+# nova-compute with kvm hypervisor
+--libvirt_type=kvm
+--libvirt_use_virtio_for_bridges=true
+--start_guests_on_host_boot=true
+--resume_guests_state_on_host_boot=true
+--connection_type=libvirt
+
+ # network specific settings
+--network_manager=nova.network.manager.FlatDHCPManager
+--force_dhcp_release
+--public_interface=eth0
+--flat_interface=eth1
+--flat_network_bridge=br100
+--routing_source_ip=192.168.1.188
+--fixed_range=192.168.2.192/27
+--floating_range=192.168.1.192/27
+--network_size=32
+--flat_network_dhcp_start=192.168.2.193
+--flat_injected=False
+***************************************************
+nova-api-metadata stop/waiting
+nova-compute stop/waiting
+nova-network stop/waiting
+nova-api-metadata start/running, process 1194
+nova-compute start/running, process 1205
+nova-network start/running, process 1215
+Binary           Host                                 Zone             Status     State Updated_At
+nova-consoleauth controller                           nova             enabled    :-)   2013-12-03 03:11:36
+nova-cert        controller                           nova             enabled    :-)   2013-12-03 03:11:36
+nova-scheduler   controller                           nova             enabled    :-)   2013-12-03 03:11:36
+nova-volume      controller                           nova             enabled    :-)   2013-12-03 03:11:40
+nova-network     controller                           nova             enabled    :-)   2013-12-03 03:11:36
+nova-network     compute1                             nova             enabled    XXX   2013-12-03 02:12:17
+nova-compute     compute1                             nova             enabled    XXX   2013-12-03 02:12:25
+Command failed, please check log for more info
+id   	IPv4              	IPv6           	start address  	DNS1           	DNS2           	VlanID         	project        	uuid           
+1    	192.168.2.192/27  	None           	192.168.2.194  	8.8.4.4        	None           	None           	None           	99bdf7bd-6060-408d-b545-adb9838b56a7
+network           	IP address     	hostname       	host
+192.168.2.192/27  	192.168.2.192  	None           	None
+192.168.2.192/27  	192.168.2.193  	None           	None
+192.168.2.192/27  	192.168.2.194  	vm1            	compute1
+192.168.2.192/27  	192.168.2.195  	None           	None
+192.168.2.192/27  	192.168.2.196  	None           	None
+192.168.2.192/27  	192.168.2.197  	None           	None
+192.168.2.192/27  	192.168.2.198  	None           	None
+192.168.2.192/27  	192.168.2.199  	None           	None
+192.168.2.192/27  	192.168.2.200  	None           	None
+192.168.2.192/27  	192.168.2.201  	None           	None
+192.168.2.192/27  	192.168.2.202  	None           	None
+192.168.2.192/27  	192.168.2.203  	None           	None
+192.168.2.192/27  	192.168.2.204  	None           	None
+192.168.2.192/27  	192.168.2.205  	None           	None
+192.168.2.192/27  	192.168.2.206  	None           	None
+192.168.2.192/27  	192.168.2.207  	None           	None
+192.168.2.192/27  	192.168.2.208  	None           	None
+192.168.2.192/27  	192.168.2.209  	None           	None
+192.168.2.192/27  	192.168.2.210  	None           	None
+192.168.2.192/27  	192.168.2.211  	None           	None
+192.168.2.192/27  	192.168.2.212  	None           	None
+192.168.2.192/27  	192.168.2.213  	None           	None
+192.168.2.192/27  	192.168.2.214  	None           	None
+192.168.2.192/27  	192.168.2.215  	None           	None
+192.168.2.192/27  	192.168.2.216  	None           	None
+192.168.2.192/27  	192.168.2.217  	None           	None
+192.168.2.192/27  	192.168.2.218  	None           	None
+192.168.2.192/27  	192.168.2.219  	None           	None
+192.168.2.192/27  	192.168.2.220  	None           	None
+192.168.2.192/27  	192.168.2.221  	None           	None
+192.168.2.192/27  	192.168.2.222  	None           	None
+192.168.2.192/27  	192.168.2.223  	None           	None
+***************************************************
+id	cidr
+1	192.168.2.192/27
+id	address	network_id
+1	192.168.2.192	1
+2	192.168.2.193	1
+3	192.168.2.194	1
+4	192.168.2.195	1
+5	192.168.2.196	1
+6	192.168.2.197	1
+7	192.168.2.198	1
+8	192.168.2.199	1
+9	192.168.2.200	1
+10	192.168.2.201	1
+11	192.168.2.202	1
+12	192.168.2.203	1
+13	192.168.2.204	1
+14	192.168.2.205	1
+15	192.168.2.206	1
+16	192.168.2.207	1
+17	192.168.2.208	1
+18	192.168.2.209	1
+19	192.168.2.210	1
+20	192.168.2.211	1
+21	192.168.2.212	1
+22	192.168.2.213	1
+23	192.168.2.214	1
+24	192.168.2.215	1
+25	192.168.2.216	1
+26	192.168.2.217	1
+27	192.168.2.218	1
+28	192.168.2.219	1
+29	192.168.2.220	1
+30	192.168.2.221	1
+31	192.168.2.222	1
+32	192.168.2.223	1
+***************************************************
+Generating public/private rsa key pair.
+/root/.ssh/id_rsa already exists.
+Overwrite (y/n)? +------+-------------------------------------------------+
+| Name |                   Fingerprint                   |
++------+-------------------------------------------------+
+| key1 | 59:89:70:7e:62:72:01:e4:a3:ad:a2:f1:06:e2:99:98 |
++------+-------------------------------------------------+
++----+-----------+-----------+------+-----------+------+-------+-------------+
+| ID |    Name   | Memory_MB | Disk | Ephemeral | Swap | VCPUs | RXTX_Factor |
++----+-----------+-----------+------+-----------+------+-------+-------------+
+| 1  | m1.tiny   | 512       | 0    | 0         |      | 1     | 1.0         |
+| 2  | m1.small  | 2048      | 10   | 20        |      | 1     | 1.0         |
+| 3  | m1.medium | 4096      | 10   | 40        |      | 2     | 1.0         |
+| 4  | m1.large  | 8192      | 10   | 80        |      | 4     | 1.0         |
+| 5  | m1.xlarge | 16384     | 10   | 160       |      | 8     | 1.0         |
++----+-----------+-----------+------+-----------+------+-------+-------------+
++--------------------------------------+------------------------------------+--------+--------+
+|                  ID                  |                Name                | Status | Server |
++--------------------------------------+------------------------------------+--------+--------+
+| 473d28b4-7fe5-48b7-a791-05d6cd8d1ba2 | cirros-0.30-x86_64                 | ACTIVE |        |
+| 6f627717-fbee-492c-bca0-02e7350e729c | Ubuntu 12.04 server cloudimg amd64 | ACTIVE |        |
++--------------------------------------+------------------------------------+--------+--------+
++--------------------------------------+------+--------+--------------------------------------+
+|                  ID                  | Name | Status |               Networks               |
++--------------------------------------+------+--------+--------------------------------------+
+| 2f930b65-01dc-46f1-8fe4-b81174570c41 | vm1  | ACTIVE | private=192.168.2.194, 192.168.1.193 |
++--------------------------------------+------+--------+--------------------------------------+
+ Id Name                 State
+----------------------------------
+
+id	display_name
+1	vm1
+333333333333333333333333333333333333333333333333333
+========================================================
+filter
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+-N nova-api-metadat-FORWARD
+-N nova-api-metadat-INPUT
+-N nova-api-metadat-OUTPUT
+-N nova-api-metadat-local
+-N nova-filter-top
+-N nova-network-FORWARD
+-N nova-network-INPUT
+-N nova-network-OUTPUT
+-N nova-network-local
+-A INPUT -j nova-network-INPUT
+-A INPUT -j nova-api-metadat-INPUT
+-A FORWARD -j nova-filter-top
+-A FORWARD -j nova-network-FORWARD
+-A FORWARD -j nova-api-metadat-FORWARD
+-A OUTPUT -j nova-filter-top
+-A OUTPUT -j nova-network-OUTPUT
+-A OUTPUT -j nova-api-metadat-OUTPUT
+-A nova-api-metadat-INPUT -d 192.168.1.189/32 -p tcp -m tcp --dport 8775 -j ACCEPT
+-A nova-filter-top -j nova-network-local
+-A nova-filter-top -j nova-api-metadat-local
+-A nova-network-FORWARD -i br100 -j ACCEPT
+-A nova-network-FORWARD -o br100 -j ACCEPT
+========================================================
+nat
+-P PREROUTING ACCEPT
+-P INPUT ACCEPT
+-P OUTPUT ACCEPT
+-P POSTROUTING ACCEPT
+-N nova-api-metadat-OUTPUT
+-N nova-api-metadat-POSTROUTING
+-N nova-api-metadat-PREROUTING
+-N nova-api-metadat-float-snat
+-N nova-api-metadat-snat
+-N nova-network-OUTPUT
+-N nova-network-POSTROUTING
+-N nova-network-PREROUTING
+-N nova-network-float-snat
+-N nova-network-snat
+-N nova-postrouting-bottom
+-A PREROUTING -j nova-network-PREROUTING
+-A PREROUTING -j nova-api-metadat-PREROUTING
+-A OUTPUT -j nova-network-OUTPUT
+-A OUTPUT -j nova-api-metadat-OUTPUT
+-A POSTROUTING -j nova-network-POSTROUTING
+-A POSTROUTING -j nova-api-metadat-POSTROUTING
+-A POSTROUTING -j nova-postrouting-bottom
+-A nova-api-metadat-snat -j nova-api-metadat-float-snat
+-A nova-network-POSTROUTING -s 192.168.2.192/27 -d 192.168.1.189/32 -j ACCEPT
+-A nova-network-POSTROUTING -s 192.168.2.192/27 -d 10.128.0.0/24 -j ACCEPT
+-A nova-network-POSTROUTING -s 192.168.2.192/27 -d 192.168.2.192/27 -m conntrack ! --ctstate DNAT -j ACCEPT
+-A nova-network-PREROUTING -d 169.254.169.254/32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.1.189:8775
+-A nova-network-snat -j nova-network-float-snat
+-A nova-network-snat -s 192.168.2.192/27 -o eth0 -j SNAT --to-source 192.168.1.188
+-A nova-postrouting-bottom -j nova-network-snat
+-A nova-postrouting-bottom -j nova-api-metadat-snat
+========================================================
+mangle
+-P PREROUTING ACCEPT
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+-P POSTROUTING ACCEPT
+========================================================
+raw
+-P PREROUTING ACCEPT
+-P OUTPUT ACCEPT
+========================================================
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG    100    0        0 eth0
+192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 eth0
+192.168.2.192   0.0.0.0         255.255.255.224 U     0      0        0 br100
+192.168.122.0   0.0.0.0         255.255.255.0   U     0      0        0 virbr0
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet 169.254.169.254/32 scope link lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
+    link/ether 5c:f3:fc:b8:67:7c brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.189/24 brd 192.168.1.255 scope global eth0
+    inet6 fe80::5ef3:fcff:feb8:677c/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc mq master br100 state UP qlen 1000
+    link/ether 5c:f3:fc:b8:67:7e brd ff:ff:ff:ff:ff:ff
+    inet6 2001:da8:201:1017:b458:cb84:876d:2b68/64 scope global temporary dynamic 
+       valid_lft 550463sec preferred_lft 31463sec
+    inet6 2001:da8:201:1017:1f6:96f8:4738:bcf5/64 scope global temporary deprecated dynamic 
+       valid_lft 464665sec preferred_lft 0sec
+    inet6 2001:da8:201:1017:5ef3:fcff:feb8:677e/64 scope global dynamic 
+       valid_lft 2547044sec preferred_lft 559844sec
+    inet6 fe80::5ef3:fcff:feb8:677e/64 scope link 
+       valid_lft forever preferred_lft forever
+4: usb0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN qlen 1000
+    link/ether 5e:f3:fc:be:67:7f brd ff:ff:ff:ff:ff:ff
+5: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN 
+    link/ether 92:eb:de:85:a7:00 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+16: br100: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP 
+    link/ether 5c:f3:fc:b8:67:7e brd ff:ff:ff:ff:ff:ff
+    inet 192.168.2.195/27 brd 192.168.2.223 scope global br100
+    inet6 2001:da8:201:1017:a830:444b:d7a2:df55/64 scope global temporary dynamic 
+       valid_lft 559897sec preferred_lft 40897sec
+    inet6 2001:da8:201:1017:5ef3:fcff:feb8:677e/64 scope global dynamic 
+       valid_lft 2591934sec preferred_lft 604734sec
+    inet6 fe80::4a8:bbff:fea0:66df/64 scope link 
+       valid_lft forever preferred_lft forever
+333333333333333333333333333333333333333333333333333
+b0b6ba1a295f496fba19f8d319147502	192.168.1.193	2f930b65-01dc-46f1-8fe4-b81174570c41	nova	eth0
+None	192.168.1.194	None	nova	eth0
+None	192.168.1.195	None	nova	eth0
+None	192.168.1.196	None	nova	eth0
+None	192.168.1.197	None	nova	eth0
+None	192.168.1.198	None	nova	eth0
+None	192.168.1.199	None	nova	eth0
+None	192.168.1.200	None	nova	eth0
+None	192.168.1.201	None	nova	eth0
+None	192.168.1.202	None	nova	eth0
+None	192.168.1.203	None	nova	eth0
+None	192.168.1.204	None	nova	eth0
+None	192.168.1.205	None	nova	eth0
+None	192.168.1.206	None	nova	eth0
+None	192.168.1.207	None	nova	eth0
+None	192.168.1.208	None	nova	eth0
+None	192.168.1.209	None	nova	eth0
+None	192.168.1.210	None	nova	eth0
+None	192.168.1.211	None	nova	eth0
+None	192.168.1.212	None	nova	eth0
+None	192.168.1.213	None	nova	eth0
+None	192.168.1.214	None	nova	eth0
+None	192.168.1.215	None	nova	eth0
+None	192.168.1.216	None	nova	eth0
+None	192.168.1.217	None	nova	eth0
+None	192.168.1.218	None	nova	eth0
+None	192.168.1.219	None	nova	eth0
+None	192.168.1.220	None	nova	eth0
+None	192.168.1.221	None	nova	eth0
+None	192.168.1.222	None	nova	eth0
+None	192.168.1.193	None	nova	eth0
+None	192.168.1.194	None	nova	eth0
+None	192.168.1.195	None	nova	eth0
+None	192.168.1.196	None	nova	eth0
+None	192.168.1.197	None	nova	eth0
+None	192.168.1.198	None	nova	eth0
+None	192.168.1.199	None	nova	eth0
+None	192.168.1.200	None	nova	eth0
+None	192.168.1.201	None	nova	eth0
+None	192.168.1.202	None	nova	eth0
+None	192.168.1.203	None	nova	eth0
+None	192.168.1.204	None	nova	eth0
+None	192.168.1.205	None	nova	eth0
+None	192.168.1.206	None	nova	eth0
+None	192.168.1.207	None	nova	eth0
+None	192.168.1.208	None	nova	eth0
+None	192.168.1.209	None	nova	eth0
+None	192.168.1.210	None	nova	eth0
+None	192.168.1.211	None	nova	eth0
+None	192.168.1.212	None	nova	eth0
+None	192.168.1.213	None	nova	eth0
+None	192.168.1.214	None	nova	eth0
+None	192.168.1.215	None	nova	eth0
+None	192.168.1.216	None	nova	eth0
+None	192.168.1.217	None	nova	eth0
+None	192.168.1.218	None	nova	eth0
+None	192.168.1.219	None	nova	eth0
+None	192.168.1.220	None	nova	eth0
+None	192.168.1.221	None	nova	eth0
+None	192.168.1.222	None	nova	eth0
+None	192.168.1.193	None	nova	eth0
+None	192.168.1.194	None	nova	eth0
+None	192.168.1.195	None	nova	eth0
+None	192.168.1.196	None	nova	eth0
+None	192.168.1.197	None	nova	eth0
+None	192.168.1.198	None	nova	eth0
+None	192.168.1.199	None	nova	eth0
+None	192.168.1.200	None	nova	eth0
+None	192.168.1.201	None	nova	eth0
+None	192.168.1.202	None	nova	eth0
+None	192.168.1.203	None	nova	eth0
+None	192.168.1.204	None	nova	eth0
+None	192.168.1.205	None	nova	eth0
+None	192.168.1.206	None	nova	eth0
+None	192.168.1.207	None	nova	eth0
+None	192.168.1.208	None	nova	eth0
+None	192.168.1.209	None	nova	eth0
+None	192.168.1.210	None	nova	eth0
+None	192.168.1.211	None	nova	eth0
+None	192.168.1.212	None	nova	eth0
+None	192.168.1.213	None	nova	eth0
+None	192.168.1.214	None	nova	eth0
+None	192.168.1.215	None	nova	eth0
+None	192.168.1.216	None	nova	eth0
+None	192.168.1.217	None	nova	eth0
+None	192.168.1.218	None	nova	eth0
+None	192.168.1.219	None	nova	eth0
+None	192.168.1.220	None	nova	eth0
+None	192.168.1.221	None	nova	eth0
+None	192.168.1.222	None	nova	eth0
+***************************************************
+id	address
+1	192.168.1.193
+2	192.168.1.194
+3	192.168.1.195
+4	192.168.1.196
+5	192.168.1.197
+6	192.168.1.198
+7	192.168.1.199
+8	192.168.1.200
+9	192.168.1.201
+10	192.168.1.202
+11	192.168.1.203
+12	192.168.1.204
+13	192.168.1.205
+14	192.168.1.206
+15	192.168.1.207
+16	192.168.1.208
+17	192.168.1.209
+18	192.168.1.210
+19	192.168.1.211
+20	192.168.1.212
+21	192.168.1.213
+22	192.168.1.214
+23	192.168.1.215
+24	192.168.1.216
+25	192.168.1.217
+26	192.168.1.218
+27	192.168.1.219
+28	192.168.1.220
+29	192.168.1.221
+30	192.168.1.222
+31	192.168.1.193
+32	192.168.1.194
+33	192.168.1.195
+34	192.168.1.196
+35	192.168.1.197
+36	192.168.1.198
+37	192.168.1.199
+38	192.168.1.200
+39	192.168.1.201
+40	192.168.1.202
+41	192.168.1.203
+42	192.168.1.204
+43	192.168.1.205
+44	192.168.1.206
+45	192.168.1.207
+46	192.168.1.208
+47	192.168.1.209
+48	192.168.1.210
+49	192.168.1.211
+50	192.168.1.212
+51	192.168.1.213
+52	192.168.1.214
+53	192.168.1.215
+54	192.168.1.216
+55	192.168.1.217
+56	192.168.1.218
+57	192.168.1.219
+58	192.168.1.220
+59	192.168.1.221
+60	192.168.1.222
+61	192.168.1.193
+62	192.168.1.194
+63	192.168.1.195
+64	192.168.1.196
+65	192.168.1.197
+66	192.168.1.198
+67	192.168.1.199
+68	192.168.1.200
+69	192.168.1.201
+70	192.168.1.202
+71	192.168.1.203
+72	192.168.1.204
+73	192.168.1.205
+74	192.168.1.206
+75	192.168.1.207
+76	192.168.1.208
+77	192.168.1.209
+78	192.168.1.210
+79	192.168.1.211
+80	192.168.1.212
+81	192.168.1.213
+82	192.168.1.214
+83	192.168.1.215
+84	192.168.1.216
+85	192.168.1.217
+86	192.168.1.218
+87	192.168.1.219
+88	192.168.1.220
+89	192.168.1.221
+90	192.168.1.222
+***************************************************
+4444444444444444444444444444444444444444444444444444444444444
+========================================================
+filter
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+-N nova-api-metadat-FORWARD
+-N nova-api-metadat-INPUT
+-N nova-api-metadat-OUTPUT
+-N nova-api-metadat-local
+-N nova-filter-top
+-N nova-network-FORWARD
+-N nova-network-INPUT
+-N nova-network-OUTPUT
+-N nova-network-local
+-A INPUT -j nova-network-INPUT
+-A INPUT -j nova-api-metadat-INPUT
+-A FORWARD -j nova-filter-top
+-A FORWARD -j nova-network-FORWARD
+-A FORWARD -j nova-api-metadat-FORWARD
+-A OUTPUT -j nova-filter-top
+-A OUTPUT -j nova-network-OUTPUT
+-A OUTPUT -j nova-api-metadat-OUTPUT
+-A nova-api-metadat-INPUT -d 192.168.1.189/32 -p tcp -m tcp --dport 8775 -j ACCEPT
+-A nova-filter-top -j nova-network-local
+-A nova-filter-top -j nova-api-metadat-local
+-A nova-network-FORWARD -i br100 -j ACCEPT
+-A nova-network-FORWARD -o br100 -j ACCEPT
+========================================================
+nat
+-P PREROUTING ACCEPT
+-P INPUT ACCEPT
+-P OUTPUT ACCEPT
+-P POSTROUTING ACCEPT
+-N nova-api-metadat-OUTPUT
+-N nova-api-metadat-POSTROUTING
+-N nova-api-metadat-PREROUTING
+-N nova-api-metadat-float-snat
+-N nova-api-metadat-snat
+-N nova-network-OUTPUT
+-N nova-network-POSTROUTING
+-N nova-network-PREROUTING
+-N nova-network-float-snat
+-N nova-network-snat
+-N nova-postrouting-bottom
+-A PREROUTING -j nova-network-PREROUTING
+-A PREROUTING -j nova-api-metadat-PREROUTING
+-A OUTPUT -j nova-network-OUTPUT
+-A OUTPUT -j nova-api-metadat-OUTPUT
+-A POSTROUTING -j nova-network-POSTROUTING
+-A POSTROUTING -j nova-api-metadat-POSTROUTING
+-A POSTROUTING -j nova-postrouting-bottom
+-A nova-api-metadat-snat -j nova-api-metadat-float-snat
+-A nova-network-POSTROUTING -s 192.168.2.192/27 -d 192.168.1.189/32 -j ACCEPT
+-A nova-network-POSTROUTING -s 192.168.2.192/27 -d 10.128.0.0/24 -j ACCEPT
+-A nova-network-POSTROUTING -s 192.168.2.192/27 -d 192.168.2.192/27 -m conntrack ! --ctstate DNAT -j ACCEPT
+-A nova-network-PREROUTING -d 169.254.169.254/32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.1.189:8775
+-A nova-network-snat -j nova-network-float-snat
+-A nova-network-snat -s 192.168.2.192/27 -o eth0 -j SNAT --to-source 192.168.1.188
+-A nova-postrouting-bottom -j nova-network-snat
+-A nova-postrouting-bottom -j nova-api-metadat-snat
+========================================================
+mangle
+-P PREROUTING ACCEPT
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+-P POSTROUTING ACCEPT
+========================================================
+raw
+-P PREROUTING ACCEPT
+-P OUTPUT ACCEPT
+========================================================
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet 169.254.169.254/32 scope link lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
+    link/ether 5c:f3:fc:b8:67:7c brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.189/24 brd 192.168.1.255 scope global eth0
+    inet6 fe80::5ef3:fcff:feb8:677c/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc mq master br100 state UP qlen 1000
+    link/ether 5c:f3:fc:b8:67:7e brd ff:ff:ff:ff:ff:ff
+    inet6 2001:da8:201:1017:b458:cb84:876d:2b68/64 scope global temporary dynamic 
+       valid_lft 550459sec preferred_lft 31459sec
+    inet6 2001:da8:201:1017:1f6:96f8:4738:bcf5/64 scope global temporary deprecated dynamic 
+       valid_lft 464661sec preferred_lft 0sec
+    inet6 2001:da8:201:1017:5ef3:fcff:feb8:677e/64 scope global dynamic 
+       valid_lft 2547040sec preferred_lft 559840sec
+    inet6 fe80::5ef3:fcff:feb8:677e/64 scope link 
+       valid_lft forever preferred_lft forever
+4: usb0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN qlen 1000
+    link/ether 5e:f3:fc:be:67:7f brd ff:ff:ff:ff:ff:ff
+5: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN 
+    link/ether 92:eb:de:85:a7:00 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+16: br100: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP 
+    link/ether 5c:f3:fc:b8:67:7e brd ff:ff:ff:ff:ff:ff
+    inet 192.168.2.195/27 brd 192.168.2.223 scope global br100
+    inet6 2001:da8:201:1017:a830:444b:d7a2:df55/64 scope global temporary dynamic 
+       valid_lft 559892sec preferred_lft 40892sec
+    inet6 2001:da8:201:1017:5ef3:fcff:feb8:677e/64 scope global dynamic 
+       valid_lft 2591929sec preferred_lft 604729sec
+    inet6 fe80::4a8:bbff:fea0:66df/64 scope link 
+       valid_lft forever preferred_lft forever
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG    100    0        0 eth0
+192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 eth0
+192.168.2.192   0.0.0.0         255.255.255.224 U     0      0        0 br100
+192.168.122.0   0.0.0.0         255.255.255.0   U     0      0        0 virbr0
+4444444444444444444444444444444444444444444444444444444444444
++---------+-------------+
+|   Name  | Description |
++---------+-------------+
+| default | default     |
++---------+-------------+
++-------------+-----------+---------+-----------+--------------+
+| IP Protocol | From Port | To Port |  IP Range | Source Group |
++-------------+-----------+---------+-----------+--------------+
+| icmp        | -1        | -1      | 0.0.0.0/0 |              |
+| tcp         | 22        | 22      | 0.0.0.0/0 |              |
++-------------+-----------+---------+-----------+--------------+
++--------------------------------------+------+--------+--------------------------------------+
+|                  ID                  | Name | Status |               Networks               |
++--------------------------------------+------+--------+--------------------------------------+
+| 2f930b65-01dc-46f1-8fe4-b81174570c41 | vm1  | ACTIVE | private=192.168.2.194, 192.168.1.193 |
++--------------------------------------+------+--------+--------------------------------------+

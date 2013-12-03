@@ -1,0 +1,3 @@
+#!/bin/bash
+./tool/nova_remove_packages
+./tool/nova_delete_files

@@ -1,6 +1,0 @@
-# install
-source ./0_install_source_me
-./install
-
-# uninstall
-./uninstall

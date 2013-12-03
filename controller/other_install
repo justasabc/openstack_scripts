@@ -8,9 +8,6 @@
 echo 1 > /proc/sys/net/ipv4/ip_forward
 apt-get -y install bridge-utils
 
-# kvm
-apt-get -y install kvm libvirt-bin
-
 # install ntp and configure
 apt-get -y install ntp
 file=/etc/ntp.conf
@@ -78,7 +75,7 @@ EOF
 echo "***************************************************"
 
 # import data
-file=./controller/keystone/keystone_data.sh
+file=../same/keystone/keystone_data.sh
 bash $file
 echo "***************************************************"
 keystone user-list
@@ -86,7 +83,7 @@ keystone tenant-list
 keystone role-list
 echo "***************************************************"
 
-file=./controller/keystone/endpoints.sh
+file=../same/keystone/endpoints.sh
 bash $file
 echo "***************************************************"
 keystone service-list
@@ -126,16 +123,16 @@ grep 'mysql' $file
 echo "***************************************************"
 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#file=/etc/glance/glance-registry.conf
-#cat <<EOF >> $file
-#[paste_deploy]
-#flavor = keystone
-#EOF
-#file=/etc/glance/glance-api.conf
-#cat <<EOF >> $file
-#[paste_deploy]
-#flavor = keystone
-#EOF
+file=/etc/glance/glance-registry.conf
+cat <<EOF >> $file
+[paste_deploy]
+flavor = keystone
+EOF
+file=/etc/glance/glance-api.conf
+cat <<EOF >> $file
+[paste_deploy]
+flavor = keystone
+EOF
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 echo "***************************************************"
 # restart glance
@@ -161,9 +158,3 @@ echo "***************************************************"
 glance index
 glance --version
 echo "***************************************************"
-
-#====================================================
-# Step 5: Install and configure Nova
-#====================================================
-./nova_install
-

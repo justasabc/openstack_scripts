@@ -1,0 +1,5 @@
+#!/bin/bash
+file=./tool/node_remove_packages
+bash $file
+file=./tool/node_delete_files
+bash $file

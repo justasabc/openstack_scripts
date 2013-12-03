@@ -1,0 +1,3 @@
+#!/bin/bash
+./tool/other_remove_packages
+./tool/other_delete_files

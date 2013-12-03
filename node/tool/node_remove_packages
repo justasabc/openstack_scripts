@@ -1,0 +1,9 @@
+#!/bin/bash
+apt-get -y --purge autoremove bridge-utils
+apt-get -y --purge autoremove ntp
+apt-get -y --purge autoremove open-iscsi open-iscsi-utils
+
+# remove nova
+file=../same/iptable/clean_iptables
+bash $file
+apt-get -y --purge autoremove nova-api-metadata nova-compute nova-compute-kvm nova-network python-nova python-novaclient
