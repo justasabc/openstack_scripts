@@ -1,33 +1,39 @@
 # pre
 
 ## pre check
-vim ./pre/check_cpu
+
+	vim ./pre/check_cpu
 
 ## nova-volume
-vim ./pre/check_nova_volume
+
+	vim ./pre/check_nova_volume
 
 
 # controller node
 
 ## install 
-vim ./same/interfaces
-source ./set_env
-./controller/install
+
+	vim ./same/interfaces
+	source ./set_env
+	./controller/install
 
 ## uninstall
-./controller/uninstall
+
+	./controller/uninstall
 
 ## reinstall nova
-./controller/nova_uninstall
-./controller/nova_install
+	./controller/nova_uninstall
+	./controller/nova_install
 
 
 # compute node
 
 ## install 
-vim ./same/interfaces
-source ./set_env
-./node/install
+
+	vim ./same/interfaces
+	source ./set_env
+	./node/install
 
 ## uninstall
-./node/uninstall
+
+	./node/uninstall
