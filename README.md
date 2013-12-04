@@ -4,7 +4,7 @@ OpenStack Scripts
 # 1. introduction
 
 ## 1.1 description
-OpenStack multi-node installer and uninstaller scripts and guides.Feel free to get copy of this repository.
+OpenStack essex multi-node installer and uninstaller scripts and guides for Ubuntu 12.04 Server 64-bit x86. Feel free to get copy of this repository.
 `git clone https://github.com/justasabc/openstack_scripts.git`
 
 ## 1.2 contributors
@@ -13,7 +13,12 @@ OpenStack multi-node installer and uninstaller scripts and guides.Feel free to g
 ## 1.3 licenses
 GPL 2.0
 
+## 1.4 version
+* OS: Ubuntu 12.04 Server 64-bit x86
+* OpenStack: Essex
+
 # 2. pre-check
+
 ## 2.1 check cpu
 
 	vim ./pre/check_cpu
