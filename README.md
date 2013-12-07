@@ -1,17 +1,18 @@
-OpenStack Scripts
+OpenStack Essex Installer Scripts
 =================
 
 # 1. introduction
 
 ## 1.1 description
 OpenStack essex multi-node installer and uninstaller scripts and guides for Ubuntu 12.04 Server 64-bit x86. Feel free to get copy of this repository.
+
 `git clone https://github.com/justasabc/openstack_scripts.git`
 
 ## 1.2 contributors
 * 2013.12 - [justasabc](http://github.com/justasabc)
 
 ## 1.3 licenses
-GPL 2.0
+Apache 2.0
 
 ## 1.4 version
 * OS: Ubuntu 12.04 Server 64-bit x86
@@ -35,16 +36,19 @@ GPL 2.0
 
 ## 3.2 install 
 
-	./controller/install
+	cd ./controller/
+	./install
 
 ## 3.3 uninstall
 
-	./controller/uninstall
+	cd ./controller/
+	./uninstall
 
 ## 3.4 reinstall nova
 
-	./controller/nova_uninstall
-	./controller/nova_install
+	cd ./controller/
+	./nova_uninstall
+	./nova_install
 
 # 4. compute node
 ## 4.1 set env 
@@ -54,8 +58,10 @@ GPL 2.0
 
 ## 4.2 install 
 
-	./node/install
+	cd ./node/
+	./install
 
 ## 4.2 uninstall
 
-	./node/uninstall
+	cd ./node/
+	./uninstall
